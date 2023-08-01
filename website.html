@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healwise</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height:1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Your existing CSS styles go here */
+
+        /* Add CSS for zoom-in and zoom-out transition */
+        .container {
+            opacity: 1; /* Initially set opacity to 0 for fade-in effect */
+            transform: scale(0.8); /* Initially set scale to 0.8 for zoom-out effect */
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+        }
+
+        /* Apply CSS for showing active section with zoom-in effect */
+        .active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        nav {
+            text-align: center; /* Center align the navigation bar */
+        }
+
+        .navbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block; /* Display the navbar items in a line */
+        }
+
+        .navbar li {
+            margin-right: 20px;
+            display: inline; /* Display the navbar items inline */
+        }
+
+        .navbar li:last-child {
+            margin-right: 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #ff6600;
+        }
+
+        .hero {
+            background-image: url('hero_image.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #fff;
+            padding: 150px 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .gray-bg {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        #options {
+            padding: 40px 0;
+        }
+
+        .well-being-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .well-being-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            margin: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .well-being-option img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        /* CSS for Discover Our World section */
+        #discover {
+            padding: 80px 0;
+        }
+
+        .image-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .image-card {
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative; /* Add position: relative to make it a reference point for the description */
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-card h3 {
+            margin: 10px 0;
+            padding: 0 10px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .image-card p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.4;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        /* CSS for News section */
+        #news {
+            padding: 80px 0;
+        }
+
+        .news-item {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #000000;
+            text-decoration: none;
+            transition: box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1 style="text-align: center;" class="logo">HEALWISE</h1>
+                <ul class="navbar">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#options">Well-Being Options</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <!-- New link for Discover Our World section -->
+                    <li><a href="#discover">Discover</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <img src="log1.jpeg" alt="image_description" width="200" height="200">
+            <h1 style="color: black;">Welcome to Healwise</h1>
+            <p style="color: black;">Discover a world of possibilities to heal yourself</p>
+        </section>
+        <section id="options" class="gray-bg">
+            <div class="container">
+                <h2>Choose Your Well-Being Option</h2>
+                <div class="well-being-options">
+                    <a href="social.html" class="well-being-option">
+                        <img src="social.jpeg" alt="Social Well-Being">
+                        <h3>Social Well-Being</h3>
+                    </a>
+                    <a href="physical.html" class="well-being-option">
+                        <img src="phy.jpeg" alt="Physical Well-Being">
+                        <h3>Physical Well-Being</h3>
+                    </a>
+                    <a href="emotion.html" class="well-being-option">
+                        <img src="emo.jpeg" alt="Emotional Well-Being">
+                        <h3>Emotional Well-Being</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="discover" class="section gray-bg">
+            <div class="container">
+                <h2>Discover Our World</h2>
+                <div class="image-card-container">
+                    <div class="image-card" onclick="window.location.href='discover1.html'">
+                        <img src="e1.webp" alt="Knowledge is best with ulcerative colitis">
+                        <h3>Knowledge is best with ulcerative colitis</h3>
+                        <p style="color: #000000;">Knowledge is best with ulcerative colitis.</p>
+                    </div>
+                    <div class="image-card" onclick="window.location.href='discover2.html'">
+                        <img src="e2.webp" alt="Sample Image 2">
+                        <h3>Knowledge is power with early breast cancer</h3>
+                        <p style="color: #000000;">Knowledge is power with early breast cancer</p>
+                    </div>
+                    <div class="image-card" onclick="window.location.href='discover3.html'">
+                        <img src="e3.webp" alt="Sample Image 3">
+                        <h3>Moving forward with advanced COPD</h3>
+                        <p style="color: #000000;">Moving forward with advanced COPD.</p>
+                    </div>
+                    <div class="image-card" onclick="window.location.href='discover4.html'">
+                        <img src="e4.webp" alt="Sample Image 4">
+                        <h3>No rheum for PA pain</h3>
+                        <p style="color: #000000;">No rheum for PA pain</p>
+                    </div>
+                    <div class="image-card" onclick="window.location.href='discover5.html'">
+                        <img src="e5-1.webp" alt="Sample Image 5">
+                        <h3>Your Family Care Curriculum</h3>
+                        <p style="color: #000000;">Your Family Care Curriculum.</p>
+                    </div>
+                    <div class="image-card" onclick="window.location.href='discover6.html'">
+                        <img src="e6.webp" alt="Sample Image 6">
+                        <h3>Self Care for Caregivers</h3>
+                        <p style="color: #000000;">Self Care for Caregivers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="news" class="section">
+            <div class="container">
+                <h2>Latest News</h2>
+                <div class="image-card-container">
+                    <div class="news-item" onclick="window.location.href='news1.html'">
+                        <img src="n1.webp" alt="Sample Image 6">
+                        <h3>Manufacturing Practice) deviations.
+                            This flu season, H3N2 trumps swine flu, COVID</h3>
+                    </div>
+                    <div class="news-item" onclick="window.location.href='news2.html'">
+                        <img src="n2.webp" alt="Sample Image 6">
+                        <h3>Study finds new bone regeneration technique with clinical potential</h3>
+                    </div>
+                    <div class="news-item" onclick="window.location.href='news3.html'">
+                        <img src="n3.webp" alt="Sample Image 6">
+                        <h3>AstraZeneca CEO says lung cancer drug trial data 'very encouraging'</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>At Healwise, we are dedicated to promoting well-being and empowering individuals to lead healthier lives. Our platform serves as a comprehensive resource for all aspects of health, providing valuable insights, guidance, and support. With a passionate team of health professionals and experts, we aim to create a positive impact on the lives of our users.
+
+                    Our mission is to offer a holistic approach to health, focusing on physical, emotional, and social well-being. We believe that optimal health is achieved through balanced lifestyle choices and informed decision-making. At Healwise, we strive to inspire positive change and foster a community of like-minded individuals on their journey to improved well-being.</p>
+            </div>
+        </section>
+        <section id="services" class="section gray-bg">
+            <div class="container">
+                <h2>Our Services</h2>
+                <p>Healwise is a website that provides a range of information and services to help users improve their overall health and well-being. The 
+                    website offers a wealth of information on various health topics.</p>
+                    <p>Well-Being Options: Explore a diverse range of well-being options, each designed to cater to specific health needs. Our offerings encompass social well-being, physical fitness, and emotional health. Discover personalized solutions to enhance your overall wellness.
+
+                        Educational Resources: Access a wealth of educational materials on various health topics. From nutrition and fitness to mental health and self-care, our comprehensive resources empower you with knowledge and insights to make informed health choices.
+                        
+                        Interactive Workshops: Engage in interactive workshops and webinars hosted by experienced health professionals. Participate in discussions, ask questions, and gain practical tips to implement in your daily life</p>
+            </div>
+        </section>
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2>Portfolio</h2>
+                <p>Our portfolio showcases successful initiatives that have positively impacted the well-being of individuals and communities:
+
+                    "Healthy Habits Challenge": Our 30-day challenge encouraged participants to adopt healthier habits in diet and exercise, resulting in improved fitness levels and boosted energy.
+                    
+                    "Mindfulness Matters Campaign": This campaign focused on raising awareness about mental health and mindfulness practices, encouraging individuals to prioritize self-care and emotional well-being.
+                    
+                    "Community Wellness Program": Our collaboration with local communities led to the establishment of wellness centers, providing accessible health services and promoting health awareness.</p>
+            </div>
+        </section>
+    
+    </main>
+    <footer>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We would love to hear from you! Feel free to reach out to us for any inquiries, suggestions, or collaborations. Our dedicated team is here to assist you on your well-being journey.
+<br>
+                Contact Information:
+                <br>
+                Email: info@healwise.com
+                Phone: +1 (123) 456-7890
+                Connect with us on social media:
+                <br>
+                Facebook: @healwise
+                Instagram: @healwise_official
+                Twitter: @healwise_tweets</p>
+                <p>&copy; 2023 HEALWISE. All rights reserved.</p>
+            </div>
+    </footer>
+
+    <!-- JavaScript code for smooth card stacking transition -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".container");
+            const windowHeight = window.innerHeight;
+
+            function handleScroll() {
+                sections.forEach(function(section) {
+                    const sectionTop = section.getBoundingClientRect().top;
+
+                    if (sectionTop <= windowHeight * 0.75) {
+                        section.classList.add("active");
+                    } else {
+                        section.classList.remove("active");
+                    }
+                });
+            }
+
+            document.addEventListener("scroll", function() {
+                handleScroll();
+            });
+
+            handleScroll();
+        });
+    </script>
+</body>
+</html>
